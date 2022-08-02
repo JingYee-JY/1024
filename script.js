@@ -1,3 +1,4 @@
+import { event } from "jquery";
 import Grid from "./Grid.js"
 import Tile from "./Tile.js"
 
@@ -13,30 +14,31 @@ function setupInput() {
   }
 
 async function handleInput(e) {
-    console.log(e.key)
-    switch (e.key) {
-      case "ArrowUp":
-        if(!canMoveUp()){
+  $('tiles').swipe({
+    swipe:function(event, direction,distance, duration, fingerCount){
+      switch(direction){
+        case "up":
+          if(!canMoveUp()){
             setupInput()
             return
         }
             await moveUp()
             break
-        case "ArrowDown":
+        case "down":
             if(!canMoveDown()){
                 setupInput()
                 return
             }
             await moveDown()
             break
-        case "ArrowLeft":
+        case "left":
             if(!canMoveLeft()){
                 setupInput()
                 return
             }
             await moveLeft()
             break
-        case "ArrowRight":
+        case "right":
             if(!canMoveRight()){
                 setupInput()
                 return
@@ -47,7 +49,9 @@ async function handleInput(e) {
           console.log("f")
             setupInput()
             return
+      }
     }
+  })
 
     grid.cells.forEach(cell => cell.mergeTiles(win))
 
