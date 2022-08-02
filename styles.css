@@ -1,0 +1,154 @@
+*, *::before, *::after {
+      box-sizing: border-box;
+      font-family: Arial;
+    }
+  hr{
+    width: 50vh;
+    height: 1vh;
+    margin-top: 0;
+  }
+  .hide{
+    display: none;
+  }
+
+  h3{
+    color: #DD1E1E;
+    text-align: center;
+    width: auto;
+    height: 1vh;
+    margin-top: 0;
+   }
+  
+.instruction{
+    color: #408BAF;
+    text-align: center;
+    height: 10vh;
+    margin-top: 0vh;
+     }
+     p{
+      color: #408BAF;
+      text-align: center;
+      height: 1vh;
+      margin-top: 0vh;
+       }
+
+  body {
+    flex-direction: column;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-size: 7.5vmin;
+  }
+  .game-board-background{
+    display: grid;
+    grid-template-columns: repeat(3,20vh);
+    grid-template-rows:repeat(3,20vh);
+    background-color: #DD1E1E;
+    gap: 2vh;
+    border-radius: 1vmin;
+    padding: 2vh;
+    position: relative;
+  }
+  .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .startButton{
+    position: absolute;
+    height: 10vh;
+    width: 20vh;
+    background-color: #6DFF73;
+    font-size: 0.55em;
+    color: #1E31DD;
+    border: none;
+    border-radius: 0.8em;
+    padding: 0.7em 0.9em;
+    cursor: pointer;
+  }
+  .selectionButton{
+    height: 10vh;
+    width: 20vh;
+    background-color: #6DFF73;
+    font-size: 0.55em;
+    color: #1E31DD;
+    border: none;
+    border-radius: 0.8em;
+    padding: 0.7em 0.9em;
+    cursor: pointer;
+  }
+
+  #game-board {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-size), var(--cell-size));
+    grid-template-rows: repeat(var(--grid-size), var(--cell-size));
+    background-color: #DD1E1E;
+    gap: var(--cell-gap);
+    border-radius: 1vmin;
+    padding: var(--cell-gap);
+    position: relative;
+  }
+  
+  .cell {
+    background-color: #FF6DD6;
+    border-radius: 1vmin;
+  }
+  
+  .tile {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: var(--cell-size);
+      height: var(--cell-size);
+      border-radius: 1vmin;
+      top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+      left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+      font-weight: bold;
+      background-color:var(--background-color);
+      color: var(--text-color);
+      animation: show 200ms ease-in-out;
+      transition: 100ms ease-in-out;
+  }
+
+  @keyframes show{
+    0%{
+        opacity: .5;
+        transform: scale(0);
+    }
+  }
+  .space{
+    height: 5vh;
+  }
+  .tryAgainButton{
+    height: 10vh;
+    width: 30vh;
+    background-color: #FFA7A7;
+    font-size: 0.55em;
+    color: #EA07AA;
+    border: none;
+    border-radius: 0.9em;
+    padding: 0.7em 0.8em;
+    cursor: pointer;
+  }
+  .PlayAgainButton{
+    height: 10vh;
+    width: 30vh;
+    background-color: #FF6DD6;
+    font-size: 0.55em;
+    color: #DD1E1E;
+    border: none;
+    border-radius: 0.9em;
+    padding: 0.7em 0.8em;
+    cursor: pointer;
+  }

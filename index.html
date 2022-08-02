@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1024</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./script.js" type ="module"></script>
+</head>
+<body>
+    <div>
+        <h3>1024</h3>
+        <hr color="#FF6DD6">
+    </div>
+    <div class="container">
+        <div class ="game-board-background">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="start overlay">
+                <button class="startButton"><b>Start</b></button>
+            </div>
+            <div class=" select hide">
+                <button class="selectionButton easy"><b>Easy</b></button>
+                <p class="space"></p>
+                <button class="selectionButton normal"><b>Normal</b></button>
+                <p class="space"></p>
+                <button class="selectionButton hard"><b>Hard</b></button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div id="game-board">
+        </div>
+        <div class="lose hide">
+            <p style="color:#62ff82"><b>Cheering you on!</b></p>
+            <p class="space"></p>
+            <p style="color:#62ff82"><b>Don't Give up! Good Luck.</b></p>
+            <p class="space"></p>
+            <button class="tryAgainButton"><b>Try Again</b></button>
+        </div>
+        <div class="win hide">
+            <p style="color:#62ff82"><b>Good Job!</b></p>
+            <p class="space"></p>
+            <p style="color:#62ff82"><b>You completed the task.</b></p>
+            <p class="space"></p>
+            <button class="PlayAgainButton"><b>Play Again</b></button>
+        </div>
+    </div>
+    <div class="start-text">
+        <hr color="#fff">
+        <p style="color:#FF6DD6"><b>Click start to Play</b></p>
+    </div>
+    <div class="selection-text hide"> 
+        <hr color="#fff">
+        <p style="color:#FF6DD6"><b>Choose a difficulty to Play</b></p>
+    </div>
+    <div class="easy-text hide">
+        <p class="instruction"><b style="color:#37A44F";>Easy:</b> Join the number and get 64 tiles.</p>
+    </div>
+    <div class="normal-text hide">
+        <p class="instruction"><b style="color:#37A44F";>Normal:</b> Join the number and get 256 tiles.</p>
+    </div>
+    <div class="hard-text hide">
+        <p class="instruction"><b style="color:#37A44F";>Hard:</b> Join the number and get 1024 tiles.</p>
+    </div>
+</body>
+</html>
