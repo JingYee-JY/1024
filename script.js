@@ -47,7 +47,6 @@ export async function control() {
               await moveUp()
               swipe = true;
   }
-  console.log(swipe)
   if(swipe != true){
     console.log("f")
       return
@@ -55,6 +54,7 @@ export async function control() {
   grid.cells.forEach(cell => cell.mergeTiles(win))
 
   const newTile = new Tile(gameBoard)
+  console.log(swipe)
   grid.randomEmptyCell().tile = newTile
   setupInput()
 
@@ -178,6 +178,7 @@ easy.addEventListener("click", () => {
   grid.randomEmptyCell().tile = new Tile(gameBoard)
   setupInput()
   win = 64;
+  swipe = false;
   startGame = true;
 })
 
@@ -192,6 +193,7 @@ normal.addEventListener("click", () => {
   grid.randomEmptyCell().tile = new Tile(gameBoard)
   setupInput()
   win = 256;
+  swipe = false;
   startGame = true;
 })
 hard.addEventListener("click", () => {
@@ -205,6 +207,7 @@ hard.addEventListener("click", () => {
   grid.randomEmptyCell().tile = new Tile(gameBoard)
   setupInput()
   win = 1024;
+  swipe = false;
   startGame = true;
 })
 
