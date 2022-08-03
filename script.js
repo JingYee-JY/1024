@@ -8,19 +8,31 @@ let win;
 setupInput()
 
 function setupInput() {
-    window.addEventListener("keydown", handleInput, { once: true })
+    //window.addEventListener("keydown", handleInput, { once: true })
+  }
+  var starrtingX, starrtingY, movingX, movingY
+  function touchstart() {
+    starrtingX = evt.touches[0].clientX
+    starrtingY = evt.touches[0].clientY
+  }
+  function touchmove() {
+    movingX = evt.touches[0].clientX
+    movingY = evt.touches[0].clientY
   }
 
 async function handleInput() {
-  $("#gameBoard").touchwipe({
-    wipeLeft: function() { alert("left"); },
-    wipeRight: function() { alert("right"); },
-    wipeUp: function() { alert("up"); },
-    wipeDown: function() { alert("down"); },
-    min_move_x: 20,
-    min_move_y: 20,
-    preventDefaultEvents: true
-});
+  if(starrtingX + 100 < movingX){
+    console.log("right")
+  }
+  else if(starrtingX-100 > movingX){
+    console.log("left")
+  }
+  if(starrtingXY + 100 < movingY){
+    console.log("down")
+  }
+  else if(starrtingY-100 > movingY){
+    console.log("up")
+  }
   /*console.log(e.key)
     switch (e.key) {
       case "ArrowUp":

@@ -9,7 +9,9 @@
     <script src="jquery.touchSwipe.min.js"></script>
     <script src="./script.js" type ="module"></script>
 </head>
-<body>
+<body ontouchstart(touchstart, { once: true })
+ontouchmove(touchmove, { once: true })
+ontouchend(handleInput, { once: true })>
     <div>
         <h3>1024</h3>
         <hr color="#FF6DD6">
