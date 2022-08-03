@@ -4,86 +4,69 @@ import Tile from "./Tile.js"
 const gameBoard = document.getElementById("game-board")
 let grid;
 let win;
+let swipe = false;
+let startGame = false;
 
 setupInput()
 
 function setupInput() {
-    //window.addEventListener("keydown", handleInput, { once: true })
-  }
-  var starrtingX, starrtingY, movingX, movingY
-  function touchstart() {
-    starrtingX = evt.touches[0].clientX
-    starrtingY = evt.touches[0].clientY
-  }
-  function touchmove() {
-    movingX = evt.touches[0].clientX
-    movingY = evt.touches[0].clientY
+    window.control = control;
   }
 
-async function handleInput() {
-  if(starrtingX + 100 < movingX){
-    console.log("right")
-  }
-  else if(starrtingX-100 > movingX){
-    console.log("left")
-  }
-  if(starrtingXY + 100 < movingY){
-    console.log("down")
-  }
-  else if(starrtingY-100 > movingY){
-    console.log("up")
-  }
-  /*console.log(e.key)
-    switch (e.key) {
-      case "ArrowUp":
-        if(!canMoveUp()){
-            setupInput()
-            return
-        }
-            await moveUp()
-            break
-        case "ArrowDown":
-            if(!canMoveDown()){
-                setupInput()
-                return
-            }
-            await moveDown()
-            break
-        case "ArrowLeft":
-            if(!canMoveLeft()){
-                setupInput()
-                return
-            }
-            await moveLeft()
-            break
-        case "ArrowRight":
-            if(!canMoveRight()){
-                setupInput()
-                return
-            }
-            await moveRight()
-            break
-        default:
-          console.log("f")
-            setupInput()
-            return
-    }*/
-
-    grid.cells.forEach(cell => cell.mergeTiles(win))
-
-    const newTile = new Tile(gameBoard)
-    grid.randomEmptyCell().tile = newTile
-    setupInput()
-
-    if (!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()) {
-        newTile.waitForTransition(true).then(() => {
-          lose.classList.add("overlay")
-          lose.classList.remove("hide")
-        })
+export async function control() {
+   if(startGame == true){
+    if(startingX + 100 < movingX){
+      console.log("right")
+      if(!canMoveRight()){
         return
-      }
-    
-      setupInput()
+    }
+    await moveRight()
+    swipe = true;
+    }
+    else if(startingX-100 > movingX){
+      console.log("left")
+      if(!canMoveLeft()){
+        return
+    }
+    await moveLeft()
+    swipe = true;
+    }
+    if(startingY + 100 < movingY){
+      console.log("down")
+      if(!canMoveDown()){
+        return
+    }
+    await moveDown()
+    swipe = true;
+    }
+    else if(startingY-100 > movingY){
+      console.log("up")
+      if(!canMoveUp()){
+              return
+          }
+              await moveUp()
+              swipe = true;
+  }
+  console.log(swipe)
+  if(swipe != true){
+    console.log("f")
+      return
+  }
+  grid.cells.forEach(cell => cell.mergeTiles(win))
+
+  const newTile = new Tile(gameBoard)
+  grid.randomEmptyCell().tile = newTile
+  setupInput()
+
+  if (!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()) {
+      newTile.waitForTransition(true).then(() => {
+        lose.classList.add("overlay")
+        lose.classList.remove("hide")
+      })
+      return
+    }
+    swipe = false
+  }
     }
 
 function moveUp() {
@@ -195,6 +178,7 @@ easy.addEventListener("click", () => {
   grid.randomEmptyCell().tile = new Tile(gameBoard)
   setupInput()
   win = 64;
+  startGame = true;
 })
 
 normal.addEventListener("click", () => {
@@ -208,6 +192,7 @@ normal.addEventListener("click", () => {
   grid.randomEmptyCell().tile = new Tile(gameBoard)
   setupInput()
   win = 256;
+  startGame = true;
 })
 hard.addEventListener("click", () => {
   selectContainer.classList.add("hide");
@@ -220,6 +205,7 @@ hard.addEventListener("click", () => {
   grid.randomEmptyCell().tile = new Tile(gameBoard)
   setupInput()
   win = 1024;
+  startGame = true;
 })
 
 tryAgain.addEventListener("click", () => {
@@ -232,6 +218,7 @@ tryAgain.addEventListener("click", () => {
   removeTiles();
   removeTiles();
   removeTiles();
+  startGame = false;
     gameBoard.style.setProperty("--grid-size", null)
     gameBoard.style.setProperty("--cell-size", `${0}vmin`)
     gameBoard.style.setProperty("--cell-gap", `${0}vmin`)
