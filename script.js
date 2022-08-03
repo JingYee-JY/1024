@@ -1,4 +1,3 @@
-import { event } from "jquery";
 import Grid from "./Grid.js"
 import Tile from "./Tile.js"
 
@@ -9,36 +8,43 @@ let win;
 setupInput()
 
 function setupInput() {
-  console.log("d")
     window.addEventListener("keydown", handleInput, { once: true })
   }
 
-async function handleInput(e) {
-  $('tiles').swipe({
-    swipe:function(event, direction,distance, duration, fingerCount){
-      switch(direction){
-        case "up":
-          if(!canMoveUp()){
+async function handleInput() {
+  $("#gameBoard").touchwipe({
+    wipeLeft: function() { alert("left"); },
+    wipeRight: function() { alert("right"); },
+    wipeUp: function() { alert("up"); },
+    wipeDown: function() { alert("down"); },
+    min_move_x: 20,
+    min_move_y: 20,
+    preventDefaultEvents: true
+});
+  /*console.log(e.key)
+    switch (e.key) {
+      case "ArrowUp":
+        if(!canMoveUp()){
             setupInput()
             return
         }
             await moveUp()
             break
-        case "down":
+        case "ArrowDown":
             if(!canMoveDown()){
                 setupInput()
                 return
             }
             await moveDown()
             break
-        case "left":
+        case "ArrowLeft":
             if(!canMoveLeft()){
                 setupInput()
                 return
             }
             await moveLeft()
             break
-        case "right":
+        case "ArrowRight":
             if(!canMoveRight()){
                 setupInput()
                 return
@@ -49,9 +55,7 @@ async function handleInput(e) {
           console.log("f")
             setupInput()
             return
-      }
-    }
-  })
+    }*/
 
     grid.cells.forEach(cell => cell.mergeTiles(win))
 
