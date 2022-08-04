@@ -53,6 +53,10 @@ export async function control() {
   }
   grid.cells.forEach(cell => cell.mergeTiles(win))
 
+  if(win.classList == "hide"){
+    startGame = false;
+  }
+
   const newTile = new Tile(gameBoard)
   console.log(swipe)
   grid.randomEmptyCell().tile = newTile
