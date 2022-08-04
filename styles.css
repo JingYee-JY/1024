@@ -67,7 +67,7 @@
   }
   .startButton{
     position: absolute;
-    height: 10vh;
+    height: 10vmin;
     width: 20vmin;
     background-color: #6DFF73;
     font-size: 0.55em;
@@ -78,7 +78,7 @@
     cursor: pointer;
   }
   .selectionButton{
-    height: 10vh;
+    height: 10vmin;
     width: 20vmin;
     background-color: #6DFF73;
     font-size: 0.55em;
@@ -134,7 +134,7 @@
     height: 5vh;
   }
   .tryAgainButton{
-    height: 10vh;
+    height: 10vmiin;
     width: 30vmin;
     background-color: #FFA7A7;
     font-size: 0.55em;
@@ -145,7 +145,7 @@
     cursor: pointer;
   }
   .PlayAgainButton{
-    height: 10vh;
+    height: 10vmin;
     width: 30vmin;
     background-color: #FF6DD6;
     font-size: 0.55em;
