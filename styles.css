@@ -3,7 +3,7 @@
       font-family: Arial;
     }
   hr{
-    width: 50vh;
+    width: 50vmin;
     height: 1vh;
     margin-top: 0;
   }
@@ -45,12 +45,12 @@
   }
   .game-board-background{
     display: grid;
-    grid-template-columns: repeat(3,20vh);
-    grid-template-rows:repeat(3,20vh);
+    grid-template-columns: repeat(3,20vmin);
+    grid-template-rows:repeat(3,20vmin);
     background-color: #DD1E1E;
-    gap: 2vh;
+    gap: 2vmin;
     border-radius: 1vmin;
-    padding: 2vh;
+    padding: 2vmin;
     position: relative;
   }
   .overlay{
@@ -68,7 +68,7 @@
   .startButton{
     position: absolute;
     height: 10vh;
-    width: 20vh;
+    width: 20vmin;
     background-color: #6DFF73;
     font-size: 0.55em;
     color: #1E31DD;
@@ -79,7 +79,7 @@
   }
   .selectionButton{
     height: 10vh;
-    width: 20vh;
+    width: 20vmin;
     background-color: #6DFF73;
     font-size: 0.55em;
     color: #1E31DD;
@@ -133,7 +133,7 @@
   }
   .tryAgainButton{
     height: 10vh;
-    width: 30vh;
+    width: 30vmin;
     background-color: #FFA7A7;
     font-size: 0.55em;
     color: #EA07AA;
@@ -144,7 +144,7 @@
   }
   .PlayAgainButton{
     height: 10vh;
-    width: 30vh;
+    width: 30vmin;
     background-color: #FF6DD6;
     font-size: 0.55em;
     color: #DD1E1E;
