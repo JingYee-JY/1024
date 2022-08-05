@@ -16,7 +16,9 @@ function setupInput() {
 
 export async function control() {
    if(startGame == true){
-    if(startingX + 100 < movingX){
+    console.log(startingX)
+    console.log(movingX)
+    if(startingX + 100 < movingX && movingX !== null){
       console.log("right")
       if(!canMoveRight()){
         return
@@ -24,7 +26,7 @@ export async function control() {
     await moveRight()
     swipe = true;
     }
-    else if(startingX-100 > movingX){
+    else if(startingX-100 > movingX && movingX !== null){
       console.log("left")
       if(!canMoveLeft()){
         return
@@ -32,7 +34,7 @@ export async function control() {
     await moveLeft()
     swipe = true;
     }
-    if(startingY + 100 < movingY){
+    if(startingY + 100 < movingY && movingY !== null){
       console.log("down")
       if(!canMoveDown()){
         return
@@ -40,7 +42,7 @@ export async function control() {
     await moveDown()
     swipe = true;
     }
-    else if(startingY-100 > movingY){
+    else if(startingY-100 > movingY && movingY !== null){
       console.log("up")
       if(!canMoveUp()){
               return
@@ -48,7 +50,7 @@ export async function control() {
               await moveUp()
               swipe = true;
   }
-  if(swipe != true){
+  else if(swipe != true){
     console.log("f")
       return
   }
@@ -74,6 +76,8 @@ export async function control() {
       return
     }
     swipe = false
+    movingY = null;
+    movingX = null;
   }
     }
 
