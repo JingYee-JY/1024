@@ -1,6 +1,8 @@
 const GRID_SIZE = 3
 const CELL_SIZE = 20
 const CELL_GAP = 2
+let endGame = false;
+export {endGame};
 
 export default class Grid {
   #cells
@@ -9,6 +11,7 @@ export default class Grid {
     gridElement.style.setProperty("--grid-size", GRID_SIZE)
     gridElement.style.setProperty("--cell-size", `${CELL_SIZE}vmin`)
     gridElement.style.setProperty("--cell-gap", `${CELL_GAP}vmin`)
+    endGame = false;
     this.#cells = createCellElements(gridElement).map((cellElement, index) => {
       return new Cell(
         cellElement,
@@ -110,6 +113,7 @@ class Cell {
       const win = document.querySelector(".win");
       win.classList.add("overlay")
       win.classList.remove("hide")
+      endGame =true;
     }
   }
 }

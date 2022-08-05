@@ -1,5 +1,6 @@
 import Grid from "./Grid.js"
 import Tile from "./Tile.js"
+import {endGame} from "./Grid.js"
 
 const gameBoard = document.getElementById("game-board")
 let grid;
@@ -53,12 +54,14 @@ export async function control() {
   }
   grid.cells.forEach(cell => cell.mergeTiles(win))
 
-  if(win.classList == "hide"){
+  console.log(endGame)
+  if(endGame == true){
+    console.log("C")
     startGame = false;
   }
 
   const newTile = new Tile(gameBoard)
-  console.log(swipe)
+
   grid.randomEmptyCell().tile = newTile
   setupInput()
 
@@ -66,6 +69,7 @@ export async function control() {
       newTile.waitForTransition(true).then(() => {
         lose.classList.add("overlay")
         lose.classList.remove("hide")
+        startGame = false;
       })
       return
     }
