@@ -1,5 +1,5 @@
 const GRID_SIZE = 3
-const CELL_SIZE = 20
+const CELL_SIZE = 14
 const CELL_GAP = 2
 let endGame = false;
 export {endGame};
@@ -9,8 +9,8 @@ export default class Grid {
 
   constructor(gridElement) {
     gridElement.style.setProperty("--grid-size", GRID_SIZE)
-    gridElement.style.setProperty("--cell-size", `${CELL_SIZE}vmin`)
-    gridElement.style.setProperty("--cell-gap", `${CELL_GAP}vmin`)
+    gridElement.style.setProperty("--cell-size", `${CELL_SIZE}vh`)
+    gridElement.style.setProperty("--cell-gap", `${CELL_GAP}vh`)
     endGame = false;
     this.#cells = createCellElements(gridElement).map((cellElement, index) => {
       return new Cell(
@@ -110,10 +110,13 @@ class Cell {
     else{
       this.mergeTile.remove()
       this.mergeTile = null
-      const win = document.querySelector(".win");
-      win.classList.add("overlay")
-      win.classList.remove("hide")
-      endGame =true;
+      const win = document.querySelector(".win-container");
+      const game = document.querySelector(".game");
+      let delay = setTimeout(() => {
+        game.classList.add("hide")
+        win.classList.remove("hide")
+        endGame =true;
+      }, 400);
     }
   }
 }

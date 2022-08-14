@@ -1,7 +1,5 @@
-//import { control } from "./script";
-
 var startingX, startingY, movingX, movingY;
-//var script = require("./script");
+
   function touchstart(evt) {
     startingX = evt.touches[0].clientX
     startingY = evt.touches[0].clientY

@@ -21,66 +21,48 @@ export default class Tile{
         const power = Math.log2(v)
         //2
         if(power == 1){
-            const backgroundColor = "#FFC2EE";
-            const textColor = "#DD1E1E"
+            const backgroundColor = "#F2B17B";
             this.#tileElement.style.setProperty("--background-color", backgroundColor)
-            this.#tileElement.style.setProperty("--text-color", textColor)
         }
         //4
         if(power == 2){
-            const backgroundColor = "#67CEFF";
-            const textColor = "#019321"
+            const backgroundColor = "#C3D5BD";
             this.#tileElement.style.setProperty("--background-color", backgroundColor)
-            this.#tileElement.style.setProperty("--text-color", textColor)
         }
         //8
         if(power == 3){
-            const backgroundColor = "#FFA7A7";
-            const textColor = "#EA07AA"
+            const backgroundColor = "#DFB0B6";
             this.#tileElement.style.setProperty("--background-color", backgroundColor)
-            this.#tileElement.style.setProperty("--text-color", textColor)
         }
         //16
         if(power == 4){
-            const backgroundColor = "#80EAA3";
-            const textColor = "#026392"
+            const backgroundColor = "#DFB992";
             this.#tileElement.style.setProperty("--background-color", backgroundColor)
-            this.#tileElement.style.setProperty("--text-color", textColor)
         }
         //32
         if(power == 5){
-            const backgroundColor = "#FFC2EE";
-            const textColor = "#019321"
+            const backgroundColor = "#F2B17B";
             this.#tileElement.style.setProperty("--background-color",backgroundColor)
-            this.#tileElement.style.setProperty("--text-color", textColor)
         }
         //64
         if(power == 6){
-            const backgroundColor = "#67CEFF";
-            const textColor = "#DD1E1E"
+            const backgroundColor = "#C3D5BD";
             this.#tileElement.style.setProperty("--background-color",backgroundColor)
-            this.#tileElement.style.setProperty("--text-color", textColor)
         }
         //128
         if(power == 8){
-            const backgroundColor = "#FFA7A7";
-            const textColor = "#026392"
+            const backgroundColor = "#DFB0B6";
             this.#tileElement.style.setProperty("--background-color",backgroundColor)
-            this.#tileElement.style.setProperty("--text-color", textColor)
         }
         //256
         if(power == 9){
-            const backgroundColor = "#80EAA3";
-            const textColor = "#EA07AA"
+            const backgroundColor = "#DFB992";
             this.#tileElement.style.setProperty("--background-color",backgroundColor)
-            this.#tileElement.style.setProperty("--text-color", textColor)
         }
         //512
         if(power == 10){
-            const backgroundColor = "#FFA7A7";
-            const textColor = "#026392"
+            const backgroundColor = "#F2B17B";
             this.#tileElement.style.setProperty("--background-color",backgroundColor)
-            this.#tileElement.style.setProperty("--text-color", textColor)
         }
     }
 

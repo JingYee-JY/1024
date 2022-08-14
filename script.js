@@ -69,9 +69,11 @@ export async function control() {
 
   if (!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()) {
       newTile.waitForTransition(true).then(() => {
-        lose.classList.add("overlay")
-        lose.classList.remove("hide")
-        startGame = false;
+        let delay = setTimeout(() => {
+          lose.classList.add("overlay")
+          lose.classList.remove("hide")
+          startGame = false;
+        }, 400);
       })
       return
     }
@@ -153,38 +155,36 @@ function moveUp() {
     })
   }
 
-  const startButton = document.querySelector(".startButton");
-  const startContainer = document.querySelector(".start");
-  const selectContainer = document.querySelector(".select");
-  const easy = document.querySelector(".easy");
-  const normal = document.querySelector(".normal");
-  const hard = document.querySelector(".hard");
-  const background = document.querySelector(".container")
+
+
   const startText = document.querySelector(".start-text");
   const selectionText = document.querySelector(".selection-text");
   const easyText = document.querySelector(".easy-text");
   const normalText = document.querySelector(".normal-text");
   const hardText = document.querySelector(".hard-text");
-  const lose = document.querySelector(".lose");
-  const tryAgain = document.querySelector(".tryAgainButton");
   const playAgain = document.querySelector(".PlayAgainButton");
   const cell = document.querySelectorAll(".cell");
-  const winPop = document.querySelector(".win");
 
-  startButton.addEventListener("click", () => {
-    startContainer.classList.add("hide");
-    startContainer.classList.remove("overlay");
-    startText.classList.add("hide");
-    selectionText.classList.remove("hide");
-    selectContainer.classList.remove("hide");
-    selectContainer.classList.add("overlay")
+  const startBtn = document.querySelector(".start");
+  const startcontainer = document.querySelector(".start-container");
+  const selectContainer = document.querySelector(".select-container")
+  const easy = document.querySelector(".easy");
+  const normal = document.querySelector(".normal");
+  const hard = document.querySelector(".hard");
+  const game = document.querySelector(".game");
+  const condition = document.querySelector(".condition");
+  const winPop = document.querySelector(".win-container");
+  const lose = document.querySelector(".lose-container");
+  const tryAgain = document.querySelectorAll(".again");
+
+  startBtn.addEventListener("click", () => {
+    startcontainer.classList.add("hide");
+    selectContainer.classList.remove("hide")
+
 })
 easy.addEventListener("click", () => {
   selectContainer.classList.add("hide");
-  selectContainer.classList.remove("overlay");
-  background.classList.add("hide");
-  selectionText.classList.add("hide");
-  easyText.classList.remove("hide");
+  game.classList.remove("hide");
   grid = new Grid(gameBoard)
   grid.randomEmptyCell().tile = new Tile(gameBoard)
   grid.randomEmptyCell().tile = new Tile(gameBoard)
@@ -192,14 +192,13 @@ easy.addEventListener("click", () => {
   win = 64;
   swipe = false;
   startGame = true;
+  condition.innerHTML = `
+  <img class="difficultyCondition" src="./img/easyGoal.png">`
 })
 
 normal.addEventListener("click", () => {
   selectContainer.classList.add("hide");
-  selectContainer.classList.remove("overlay");
-  background.classList.add("hide");
-  selectionText.classList.add("hide");
-  normalText.classList.remove("hide");
+  game.classList.remove("hide");
   grid = new Grid(gameBoard)
   grid.randomEmptyCell().tile = new Tile(gameBoard)
   grid.randomEmptyCell().tile = new Tile(gameBoard)
@@ -207,13 +206,12 @@ normal.addEventListener("click", () => {
   win = 256;
   swipe = false;
   startGame = true;
+  condition.innerHTML = `
+  <img class="difficultyCondition" src="./img/normalGoal.png">`
 })
 hard.addEventListener("click", () => {
   selectContainer.classList.add("hide");
-  selectContainer.classList.remove("overlay");
-  background.classList.add("hide");
-  selectionText.classList.add("hide");
-  hardText.classList.remove("hide");
+  game.classList.remove("hide");
   grid = new Grid(gameBoard)
   grid.randomEmptyCell().tile = new Tile(gameBoard)
   grid.randomEmptyCell().tile = new Tile(gameBoard)
@@ -221,9 +219,13 @@ hard.addEventListener("click", () => {
   win = 1024;
   swipe = false;
   startGame = true;
+  condition.innerHTML = `
+  <img class="difficultyCondition" src="./img/hardGoal.png">`
 })
 
-tryAgain.addEventListener("click", () => {
+tryAgain.forEach((again) => {
+  again.addEventListener("click", () => {
+  console.log("again")
   removeTiles();
   removeTiles();
   removeTiles();
@@ -237,45 +239,10 @@ tryAgain.addEventListener("click", () => {
     gameBoard.style.setProperty("--grid-size", null)
     gameBoard.style.setProperty("--cell-size", `${0}vmin`)
     gameBoard.style.setProperty("--cell-gap", `${0}vmin`)
-  normalText.classList.add("hide");
-  hardText.classList.add("hide");
-  easyText.classList.add("hide");
-  lose.classList.remove("overlay")
-  lose.classList.add("hide")
-  background.classList.remove("hide");
-  startContainer.classList.add("hide");
-    startContainer.classList.remove("overlay");
-    startText.classList.add("hide");
-    selectionText.classList.remove("hide");
-    selectContainer.classList.remove("hide");
-    selectContainer.classList.add("overlay")
-})
-
-playAgain.addEventListener("click", () => {
-  removeTiles();
-  removeTiles();
-  removeTiles();
-  removeTiles();
-  removeTiles();
-  removeTiles();
-  removeTiles();
-  removeTiles();
-  removeTiles();
-    gameBoard.style.setProperty("--grid-size", null)
-    gameBoard.style.setProperty("--cell-size", `${0}vmin`)
-    gameBoard.style.setProperty("--cell-gap", `${0}vmin`)
-  normalText.classList.add("hide");
-  hardText.classList.add("hide");
-  easyText.classList.add("hide");
-  winPop.classList.remove("overlay")
   winPop.classList.add("hide")
-  background.classList.remove("hide");
-  startContainer.classList.add("hide");
-    startContainer.classList.remove("overlay");
-    startText.classList.add("hide");
-    selectionText.classList.remove("hide");
-    selectContainer.classList.remove("hide");
-    selectContainer.classList.add("overlay")
+  lose.classList.add("hide")
+  selectContainer.classList.remove("hide")
+})
 })
 
 function removeTiles(){
