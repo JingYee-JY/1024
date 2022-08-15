@@ -1,5 +1,5 @@
 const GRID_SIZE = 3
-const CELL_SIZE = 14
+const CELL_SIZE = 12
 const CELL_GAP = 2
 let endGame = false;
 export {endGame};

@@ -18,7 +18,7 @@ export async function control() {
    if(startGame == true){
     console.log(startingX)
     console.log(movingX)
-    if(startingX + 100 < movingX && movingX !== null){
+    if(startingX + 100 < movingX && movingX !== null && startingY + 100 > movingY && startingY-100 < movingY){
       console.log("right")
       if(!canMoveRight()){
         return
@@ -26,7 +26,7 @@ export async function control() {
     await moveRight()
     swipe = true;
     }
-    else if(startingX-100 > movingX && movingX !== null){
+    else if(startingX-100 > movingX && movingX !== null && startingY + 100 > movingY && startingY-100 < movingY){
       console.log("left")
       if(!canMoveLeft()){
         return
@@ -34,7 +34,7 @@ export async function control() {
     await moveLeft()
     swipe = true;
     }
-    if(startingY + 100 < movingY && movingY !== null){
+    if(startingY + 100 < movingY && movingY !== null && startingX + 100 > movingX && startingX-100 < movingX){
       console.log("down")
       if(!canMoveDown()){
         return
@@ -239,7 +239,8 @@ tryAgain.forEach((again) => {
     gameBoard.style.setProperty("--grid-size", null)
     gameBoard.style.setProperty("--cell-size", `${0}vmin`)
     gameBoard.style.setProperty("--cell-gap", `${0}vmin`)
-  winPop.classList.add("hide")
+  game.classList.add("hide")
+    winPop.classList.add("hide")
   lose.classList.add("hide")
   selectContainer.classList.remove("hide")
 })

@@ -94,8 +94,8 @@
 
   #game-board {
     display: grid;
-    width: 50vh;
-    height: 50vh;
+    width: 44vh;
+    height: 44vh;
     grid-template-columns: repeat(var(--grid-size), var(--cell-size));
     grid-template-rows: repeat(var(--grid-size), var(--cell-size));
     background-color: white;
@@ -225,7 +225,7 @@
     right: 1vh;
   }
   .pop{
-    width: 45vh;
+    width: 40vh;
   }
   .icon{
     width: 8vh;
