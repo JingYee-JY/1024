@@ -7,6 +7,7 @@ let grid;
 let win;
 let swipe = false;
 let startGame = false;
+let seeingInstruction = false;
 
 setupInput()
 
@@ -155,16 +156,6 @@ function moveUp() {
     })
   }
 
-
-
-  const startText = document.querySelector(".start-text");
-  const selectionText = document.querySelector(".selection-text");
-  const easyText = document.querySelector(".easy-text");
-  const normalText = document.querySelector(".normal-text");
-  const hardText = document.querySelector(".hard-text");
-  const playAgain = document.querySelector(".PlayAgainButton");
-  const cell = document.querySelectorAll(".cell");
-
   const startBtn = document.querySelector(".start");
   const startcontainer = document.querySelector(".start-container");
   const selectContainer = document.querySelector(".select-container")
@@ -176,11 +167,32 @@ function moveUp() {
   const winPop = document.querySelector(".win-container");
   const lose = document.querySelector(".lose-container");
   const tryAgain = document.querySelectorAll(".again");
+  const howToPlay = document.querySelector(".howToPlay");
+  const instruction = document.querySelector(".instruction");
+  const close = document.querySelector(".close");
+  const help = document.getElementById("help");
 
-  startBtn.addEventListener("click", () => {
+  help.addEventListener("click", () => {
+    instruction.classList.remove("hide");
+    startGame = false;
+})
+
+  howToPlay.addEventListener("click", () => {
+    instruction.classList.remove("hide");
+    seeingInstruction = true;
+})
+
+close.addEventListener("click", () => {
+  instruction.classList.add("hide");
+  seeingInstruction = false
+  startGame = true;
+})
+
+startBtn.addEventListener("click", () => {
+  if(seeingInstruction == false){
     startcontainer.classList.add("hide");
     selectContainer.classList.remove("hide")
-
+  }
 })
 easy.addEventListener("click", () => {
   selectContainer.classList.add("hide");

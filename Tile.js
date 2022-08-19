@@ -50,18 +50,23 @@ export default class Tile{
             this.#tileElement.style.setProperty("--background-color",backgroundColor)
         }
         //128
-        if(power == 8){
+        if(power == 7){
             const backgroundColor = "#DFB0B6";
             this.#tileElement.style.setProperty("--background-color",backgroundColor)
         }
         //256
-        if(power == 9){
+        if(power == 8){
             const backgroundColor = "#DFB992";
             this.#tileElement.style.setProperty("--background-color",backgroundColor)
         }
         //512
-        if(power == 10){
+        if(power == 9){
             const backgroundColor = "#F2B17B";
+            this.#tileElement.style.setProperty("--background-color",backgroundColor)
+        }
+        //1024
+        if(power == 10){
+            const backgroundColor = "#C3D5BD";
             this.#tileElement.style.setProperty("--background-color",backgroundColor)
         }
     }

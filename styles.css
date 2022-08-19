@@ -212,7 +212,7 @@
     width: 25vh;
   }
   .difficultyCondition{
-    width: 40vh;
+    width: 35vh;
   }
   .topTitle{
     padding: 10vh;
@@ -229,4 +229,24 @@
   }
   .icon{
     width: 7vh;
+  }
+  .instruction{
+    z-index: 100;
+    display: flex;
+    width: 90vmin;
+    height: 90vmin;
+    justify-content: center;
+    align-items: center;
+  }
+  .picture{
+    width: 90vmin;
+  }
+  .close{
+    position: absolute;
+    margin-bottom: -78vmin;
+    display: flex;
+  }
+  .smallbtn{
+    width: 20vmin;
+    height: 7vmin;
   }
