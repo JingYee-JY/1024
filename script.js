@@ -167,26 +167,6 @@ function moveUp() {
   const winPop = document.querySelector(".win-container");
   const lose = document.querySelector(".lose-container");
   const tryAgain = document.querySelectorAll(".again");
-  const howToPlay = document.querySelector(".howToPlay");
-  const instruction = document.querySelector(".instruction");
-  const close = document.querySelector(".close");
-  const help = document.getElementById("help");
-
-  help.addEventListener("click", () => {
-    instruction.classList.remove("hide");
-    startGame = false;
-})
-
-  howToPlay.addEventListener("click", () => {
-    instruction.classList.remove("hide");
-    seeingInstruction = true;
-})
-
-close.addEventListener("click", () => {
-  instruction.classList.add("hide");
-  seeingInstruction = false
-  startGame = true;
-})
 
 startBtn.addEventListener("click", () => {
   if(seeingInstruction == false){
