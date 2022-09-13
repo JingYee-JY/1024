@@ -21,7 +21,8 @@ function setComputerInput() {
 }
 
 async function handleInput(e){
-  console.log("C")
+  console.log(startGame)
+  if(startGame == true){
   switch(e.key){
     case "ArrowUp":
       if(!canMoveUp()){
@@ -56,7 +57,7 @@ async function handleInput(e){
       return
   }
   grid.cells.forEach(cell => cell.mergeTiles(win))
-  
+
   const newTile = new Tile(gameBoard)
 
   grid.randomEmptyCell().tile = newTile
@@ -72,8 +73,10 @@ async function handleInput(e){
       })
       return
     }
-
+  }
+  else{
     setComputerInput()
+  }
 }
 
 export async function control() {
