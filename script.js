@@ -10,10 +10,71 @@ let startGame = false;
 let seeingInstruction = false;
 
 setupInput()
+setComputerInput()
 
 function setupInput() {
     window.control = control;
+}
+
+function setComputerInput() {
+    window.addEventListener("keydown", handleInput, {once: true})
+}
+
+async function handleInput(e){
+  console.log("C")
+  switch(e.key){
+    case "ArrowUp":
+      if(!canMoveUp()){
+        setComputerInput()
+        return
+      }
+      await moveUp()
+      break
+    case "ArrowDown":
+      if(!canMoveDown()){
+        setComputerInput()
+        return
+      }
+      await moveDown()
+      break
+    case "ArrowLeft":
+      if(!canMoveLeft()){
+        setComputerInput()
+        return
+      }
+      await moveLeft()
+      break
+    case "ArrowRight":
+      if(!canMoveRight()){
+        setComputerInput()
+        return
+      }
+      await moveRight()
+      break
+    default:
+      setComputerInput()
+      return
   }
+  grid.cells.forEach(cell => cell.mergeTiles(win))
+  
+  const newTile = new Tile(gameBoard)
+
+  grid.randomEmptyCell().tile = newTile
+  setComputerInput()
+
+  if (!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()) {
+      newTile.waitForTransition(true).then(() => {
+        let delay = setTimeout(() => {
+          lose.classList.add("overlay")
+          lose.classList.remove("hide")
+          startGame = false;
+        }, 400);
+      })
+      return
+    }
+
+    setComputerInput()
+}
 
 export async function control() {
    if(startGame == true){
