@@ -231,6 +231,7 @@ function moveUp() {
   const winPop = document.querySelector(".win-container");
   const lose = document.querySelector(".lose-container");
   const tryAgain = document.querySelectorAll(".again");
+  const home = document.querySelectorAll(".home");
 
 startBtn.addEventListener("click", () => {
   if(seeingInstruction == false){
@@ -280,6 +281,33 @@ hard.addEventListener("click", () => {
 })
 
 tryAgain.forEach((again) => {
+  again.addEventListener("click", () => {
+  console.log("again")
+  removeTiles();
+  removeTiles();
+  removeTiles();
+  removeTiles();
+  removeTiles();
+  removeTiles();
+  removeTiles();
+  removeTiles();
+  removeTiles();
+  startGame = false;
+    gameBoard.style.setProperty("--grid-size", null)
+    gameBoard.style.setProperty("--cell-size", `${0}vmin`)
+    gameBoard.style.setProperty("--cell-gap", `${0}vmin`)
+    winPop.classList.add("hide")
+  lose.classList.add("hide")
+  grid = new Grid(gameBoard)
+  grid.randomEmptyCell().tile = new Tile(gameBoard)
+  grid.randomEmptyCell().tile = new Tile(gameBoard)
+  setupInput()
+  swipe = false;
+  startGame = true;
+})
+})
+
+home.forEach((again) => {
   again.addEventListener("click", () => {
   console.log("again")
   removeTiles();
