@@ -326,7 +326,7 @@ home.forEach((again) => {
   game.classList.add("hide")
     winPop.classList.add("hide")
   lose.classList.add("hide")
-  selectContainer.classList.remove("hide")
+  startcontainer.classList.remove("hide")
 })
 })
 
