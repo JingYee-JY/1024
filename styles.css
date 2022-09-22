@@ -1,252 +1,258 @@
 *, *::before, *::after {
-      box-sizing: border-box;
-      font-family: Arial;
-    }
-  hr{
-    width: 50vmin;
-    height: 1vmin;
-    margin-top: 0;
-  }
-  .hide{
-    display: none;
-    visibility: hidden;
-  }
+  box-sizing: border-box;
+  font-family: Arial;
+}
+hr{
+width: 50vmin;
+height: 1vmin;
+margin-top: 0;
+}
+.hide{
+display: none;
+visibility: hidden;
+}
 
-  h3{
-    color: #DD1E1E;
-    text-align: center;
-    width: auto;
-    height: 1vh;
-    margin-top: 0;
-   }
-  
+h3{
+color: #DD1E1E;
+text-align: center;
+width: auto;
+height: 1vh;
+margin-top: 0;
+}
+
 .instruction{
-    color: #408BAF;
-    text-align: center;
-    height: 10vh;
-    margin-top: 0vh;
-     }
-     p{
-      color: #408BAF;
-      text-align: center;
-      height: 1vh;
-      margin-top: 0vh;
-       }
+color: #408BAF;
+text-align: center;
+height: 10vh;
+margin-top: 0vh;
+ }
+ p{
+  color: #408BAF;
+  text-align: center;
+  height: 1vh;
+  margin-top: 0vh;
+   }
 
-  body {
-    flex-direction: column;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    position: fixed;
-    overflow: hidden;
-    font-size: 7.5vmin;
-  }
-  .game-board-background{
-    display: grid;
-    grid-template-columns: repeat(3,20vmin);
-    grid-template-rows:repeat(3,20vmin);
-    background-color: white;
-    gap: 2vmin;
-    border-radius: 1vmin;
-    padding: 2vmin;
-    position: relative;
-  }
-  .overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width:100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .startButton{
-    position: absolute;
-    height: 10vmin;
-    width: 20vmin;
-    background-color: #6DFF73;
-    font-size: 0.55em;
-    color: #1E31DD;
-    border: none;
-    border-radius: 0.8em;
-    padding: 0.7em 0.9em;
-    cursor: pointer;
-  }
-  .selectionButton{
-    height: 10vmin;
-    width: 20vmin;
-    background-color: #6DFF73;
-    font-size: 0.55em;
-    color: #1E31DD;
-    border: none;
-    border-radius: 0.8em;
-    padding: 0.7em 0.9em;
-    cursor: pointer;
-  }
+body {
+flex-direction: column;
+background-color: #fff;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100%;
+width: 100%;
+margin: 0;
+position: fixed;
+overflow: hidden;
+font-size: 7.5vmin;
+}
+.game-board-background{
+display: grid;
+grid-template-columns: repeat(3,20vmin);
+grid-template-rows:repeat(3,20vmin);
+background-color: white;
+gap: 2vmin;
+border-radius: 1vmin;
+padding: 2vmin;
+position: relative;
+}
+.overlay{
+position: absolute;
+top: 0;
+left: 0;
+width:100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.4);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+.startButton{
+position: absolute;
+height: 10vmin;
+width: 20vmin;
+background-color: #6DFF73;
+font-size: 0.55em;
+color: #1E31DD;
+border: none;
+border-radius: 0.8em;
+padding: 0.7em 0.9em;
+cursor: pointer;
+}
+.selectionButton{
+height: 10vmin;
+width: 20vmin;
+background-color: #6DFF73;
+font-size: 0.55em;
+color: #1E31DD;
+border: none;
+border-radius: 0.8em;
+padding: 0.7em 0.9em;
+cursor: pointer;
+}
 
-  #game-board {
-    display: grid;
-    width: 44vh;
-    height: 44vh;
-    grid-template-columns: repeat(var(--grid-size), var(--cell-size));
-    grid-template-rows: repeat(var(--grid-size), var(--cell-size));
-    background-color: white;
-    gap: var(--cell-gap);
-    border-radius: 3vmin;
-    padding: var(--cell-gap);
-    position: relative;
-  }
-  
-  .cell {
-    background-color: #EDE3D9;
-    border-radius: 3vmin;
-  }
-  
-  .tile {
-      position: absolute;
-      display: flex;
-      font-family: "Lilita One";
-      justify-content: center;
-      align-items: center;
-      font-size: 6vh;
-      width: var(--cell-size);
-      height: var(--cell-size);
-      border-radius: 3vmin;
-      top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
-      left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
-      background-color:var(--background-color);
-      color: var(--text-color);
-      animation: show 200ms ease-in-out;
-      transition: 100ms ease-in-out;
-  }
+#game-board {
+display: grid;
+width: 44vh;
+height: 44vh;
+grid-template-columns: repeat(var(--grid-size), var(--cell-size));
+grid-template-rows: repeat(var(--grid-size), var(--cell-size));
+background-color: white;
+gap: var(--cell-gap);
+border-radius: 3vmin;
+padding: var(--cell-gap);
+position: relative;
+}
 
-  @keyframes show{
-    0%{
-        opacity: .5;
-        transform: scale(0);
-    }
-  }
-  .space{
-    height: 5vh;
-  }
-  .tryAgainButton{
-    height: 10vmin;
-    width: 30vmin;
-    background-color: #FFA7A7;
-    font-size: 0.55em;
-    color: #EA07AA;
-    border: none;
-    border-radius: 0.9em;
-    padding: 0.7em 0.8em;
-    cursor: pointer;
-  }
-  .PlayAgainButton{
-    height: 10vmin;
-    width: 30vmin;
-    background-color: #FF6DD6;
-    font-size: 0.55em;
-    color: #DD1E1E;
-    border: none;
-    border-radius: 0.9em;
-    padding: 0.7em 0.8em;
-    cursor: pointer;
-  }
-  .lose{
-    width: 100%;
-    height: 100vh;
-  }
-  .win{
-    width: 100%;
-    height: 100vh;
-  }
-  .start-container,
-  .select-container,
-  .game,
-  .win-container,
-  .lose-container{
-    position: absolute;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    gap: 2vh;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    background-color: #E5CCBB;
-  }
-  .title{
-    width: 18vh;
-    height: 18vh;
-  }
-  .image{
-    width: 33vh;
-    height: 33vh;
-  }
-  .btn{
-    width: 40vh;
-    height: 10vh;
-  }
-  button{
-    background-color: rgb(0, 0, 0,0);
-    border: 0px;
-  }
-  .text{
-    width: 50vh;
-    padding: 8.5vh;
-  }
-  .top{
-    align-items: center;
-    height: 40vh;
-    width: 50vh;
-  }
-  .gameTitle{
-    width: 25vh;
-  }
-  .difficultyCondition{
-    width: 35vh;
-  }
-  .topTitle{
-    padding: 10vh;
-    height: 20vh;
-  }
-  .top-right{
-    position: absolute;
-    display: flex;
-    top: 1vh;
-    right: 1vh;
-  }
-  .pop{
-    width: 40vh;
-  }
-  .icon{
-    width: 7vh;
-  }
-  .instruction{
-    z-index: 100;
-    display: flex;
-    width: 90vmin;
-    height: 90vmin;
-    justify-content: center;
-    align-items: center;
-  }
-  .picture{
-    width: 90vmin;
-  }
-  .close{
-    position: absolute;
-    margin-bottom: -78vmin;
-    display: flex;
-  }
-  .smallbtn{
-    width: 20vmin;
-    height: 7vmin;
-  }
+.cell {
+background-color: #EDE3D9;
+border-radius: 3vmin;
+}
+
+.tile {
+  position: absolute;
+  display: flex;
+  font-family: "Lilita One";
+  justify-content: center;
+  align-items: center;
+  font-size: 6vh;
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border-radius: 3vmin;
+  top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+  left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+  background-color:var(--background-color);
+  color: var(--text-color);
+  animation: show 200ms ease-in-out;
+  transition: 100ms ease-in-out;
+}
+
+@keyframes show{
+0%{
+    opacity: .5;
+    transform: scale(0);
+}
+}
+.space{
+height: 5vh;
+}
+.tryAgainButton{
+height: 10vmin;
+width: 30vmin;
+background-color: #FFA7A7;
+font-size: 0.55em;
+color: #EA07AA;
+border: none;
+border-radius: 0.9em;
+padding: 0.7em 0.8em;
+cursor: pointer;
+}
+.PlayAgainButton{
+height: 10vmin;
+width: 30vmin;
+background-color: #FF6DD6;
+font-size: 0.55em;
+color: #DD1E1E;
+border: none;
+border-radius: 0.9em;
+padding: 0.7em 0.8em;
+cursor: pointer;
+}
+.lose{
+width: 100%;
+height: 100vh;
+}
+.win{
+width: 100%;
+height: 100vh;
+}
+.start-container,
+.select-container,
+.game,
+.win-container,
+.lose-container{
+position: absolute;
+width: 100%;
+display: flex;
+flex-direction: column;
+height: 100%;
+gap: 2vh;
+text-align: center;
+justify-content: center;
+align-items: center;
+background-color: #E5CCBB;
+}
+.title{
+width: 18vh;
+height: 18vh;
+}
+.image{
+width: 33vh;
+height: 33vh;
+}
+.btn{
+width: 40vh;
+height: 10vh;
+}
+button{
+background-color: rgb(0, 0, 0,0);
+border: 0px;
+}
+.text{
+width: 50vh;
+padding: 30px 8.5vh;
+}
+.top{
+align-items: center;
+height: auto;
+width: 50vh;
+}
+.gameTitle{
+width: 25vh;
+}
+.difficultyCondition{
+width: 35vh;
+}
+.topTitle{
+padding: 20px;
+/* height: 20vh; */
+}
+.top-right{
+position: absolute;
+display: flex;
+top: 1vh;
+right: 1vh;
+}
+.pop{
+width: 40vh;
+}
+.icon{
+width: 7vh;
+}
+.instruction{
+z-index: 100;
+display: flex;
+width: 90vmin;
+height: 90vmin;
+justify-content: center;
+align-items: center;
+}
+.picture{
+width: 90vmin;
+}
+.close{
+position: absolute;
+margin-bottom: -78vmin;
+display: flex;
+}
+.smallbtn{
+width: 20vmin;
+height: 7vmin;
+}
+
+@media screen and (max-width:767px){
+.endTitle {
+  display: none;
+}
+}

@@ -131,3 +131,4 @@ function createCellElements(gridElement) {
   }
   return cells
 }
+

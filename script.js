@@ -231,7 +231,6 @@ function moveUp() {
   const winPop = document.querySelector(".win-container");
   const lose = document.querySelector(".lose-container");
   const tryAgain = document.querySelectorAll(".again");
-  const home = document.querySelectorAll(".home");
 
 startBtn.addEventListener("click", () => {
   if(seeingInstruction == false){
@@ -240,95 +239,47 @@ startBtn.addEventListener("click", () => {
   }
 })
 easy.addEventListener("click", () => {
-  selectContainer.classList.add("hide");
-  game.classList.remove("hide");
-  grid = new Grid(gameBoard)
-  grid.randomEmptyCell().tile = new Tile(gameBoard)
-  grid.randomEmptyCell().tile = new Tile(gameBoard)
-  setupInput()
   win = 64;
-  swipe = false;
-  startGame = true;
+  began()
   condition.innerHTML = `
   <img class="difficultyCondition" src="./img/easyGoal.png">`
 })
 
 normal.addEventListener("click", () => {
-  selectContainer.classList.add("hide");
-  game.classList.remove("hide");
-  grid = new Grid(gameBoard)
-  grid.randomEmptyCell().tile = new Tile(gameBoard)
-  grid.randomEmptyCell().tile = new Tile(gameBoard)
-  setupInput()
   win = 256;
-  swipe = false;
-  startGame = true;
+  began()
   condition.innerHTML = `
   <img class="difficultyCondition" src="./img/normalGoal.png">`
 })
 hard.addEventListener("click", () => {
-  selectContainer.classList.add("hide");
-  game.classList.remove("hide");
-  grid = new Grid(gameBoard)
-  grid.randomEmptyCell().tile = new Tile(gameBoard)
-  grid.randomEmptyCell().tile = new Tile(gameBoard)
-  setupInput()
   win = 1024;
-  swipe = false;
-  startGame = true;
+  began()
   condition.innerHTML = `
   <img class="difficultyCondition" src="./img/hardGoal.png">`
 })
 
 tryAgain.forEach((again) => {
   again.addEventListener("click", () => {
-  console.log("again")
-  removeTiles();
-  removeTiles();
-  removeTiles();
-  removeTiles();
-  removeTiles();
-  removeTiles();
-  removeTiles();
-  removeTiles();
-  removeTiles();
-  startGame = false;
-    gameBoard.style.setProperty("--grid-size", null)
-    gameBoard.style.setProperty("--cell-size", `${0}vmin`)
-    gameBoard.style.setProperty("--cell-gap", `${0}vmin`)
-    winPop.classList.add("hide")
-  lose.classList.add("hide")
-  grid = new Grid(gameBoard)
-  grid.randomEmptyCell().tile = new Tile(gameBoard)
-  grid.randomEmptyCell().tile = new Tile(gameBoard)
-  setupInput()
-  swipe = false;
-  startGame = true;
-})
-})
-
-home.forEach((again) => {
-  again.addEventListener("click", () => {
-  console.log("again")
-  removeTiles();
-  removeTiles();
-  removeTiles();
-  removeTiles();
-  removeTiles();
-  removeTiles();
-  removeTiles();
-  removeTiles();
-  removeTiles();
-  startGame = false;
-    gameBoard.style.setProperty("--grid-size", null)
-    gameBoard.style.setProperty("--cell-size", `${0}vmin`)
-    gameBoard.style.setProperty("--cell-gap", `${0}vmin`)
+  for(let i = 0; i < 9; i++){
+    removeTiles();
+  }
   game.classList.add("hide")
-    winPop.classList.add("hide")
+  winPop.classList.add("hide")
   lose.classList.add("hide")
   startcontainer.classList.remove("hide")
 })
 })
+
+function began(){
+  selectContainer.classList.add("hide");
+  game.classList.remove("hide");
+  grid = new Grid(gameBoard)
+  grid.randomEmptyCell().tile = new Tile(gameBoard)
+  grid.randomEmptyCell().tile = new Tile(gameBoard)
+  swipe = false;
+  startGame = true;
+  setupInput()
+}
 
 function removeTiles(){
   var parent = gameBoard;
